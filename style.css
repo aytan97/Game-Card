@@ -74,7 +74,6 @@ body {
     width: 200px;
     height: 200px;
     background-color: lightblue;
-    transform: translate(-50%, -50%);
     visibility: visible;
     animation: zoomOut 0.8s cubic-bezier(0.42, 0, 0.58, 1) forwards;
 }
