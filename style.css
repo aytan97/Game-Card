@@ -1,0 +1,197 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+
+body {
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 70px;
+    box-sizing: border-box;
+    overflow: hidden;
+    position: relative;
+}
+
+#timer,
+#move-count {
+    top: 3%;
+    left: 49%;
+    position: absolute;
+    font-size: 1.3rem;
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: 600;
+}
+
+#move-count {
+    left: 56.5%;
+}
+
+#card-game {
+    display: grid;
+    grid-template-columns: repeat(3, 8rem);
+    grid-template-rows: repeat(3, 12rem);
+    gap: 1.1rem;
+
+    perspective: 800;
+}
+
+.card {
+    position: relative;
+    transform-style: preserve-3d;
+    transition: all 2s ease;
+
+}
+
+.card.toggled {
+    transform: rotateY(180deg);
+}
+
+.front,
+.back {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+}
+
+.back {
+    backface-visibility: hidden;
+    transform: rotateY(180deg);
+}
+
+
+.disappearing-div {
+    width: 200px;
+    height: 200px;
+    background-color: lightblue;
+    transform: translate(-50%, -50%);
+    visibility: visible;
+    animation: zoomOut 0.8s cubic-bezier(0.42, 0, 0.58, 1) forwards;
+}
+
+
+@keyframes zoomOut {
+    0% {
+        transform: scale(1);
+        visibility: visible;
+    }
+
+    100% {
+        transform: scale(0);
+        visibility: hidden;
+    }
+}
+
+
+#result {
+    width: 100%;
+    height: 100%;
+    max-width: 1600px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: rgba(0, 0, 0, 0.555);
+    position: absolute;
+    z-index: 99999;
+    font-size: 40px;
+    color: white;
+    visibility: hidden;
+}
+
+
+.show-result {
+    width: 40%;
+    height: 60%;
+  
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: white;
+    font-size: 21pt;
+    padding: 10px;
+    color: #282a3a;
+    box-shadow: rgba(0, 0, 0, 0) 0 0 0 0, rgba(0, 0, 0, 0) 0 0 0 0, rgba(0, 0, 0, .1) 0 4px 6px -1px, rgba(0, 0, 0, .1) 0 2px 4px -2px;
+}
+
+.win-confetti {
+    width: 90%;
+    height: 60%;
+    overflow: hidden;
+    box-sizing: border-box;
+}
+
+.retry-game {
+    width: 120px;
+    height: 50px;
+    border: none;
+    background-color: rgb(241, 148, 86);
+    color: white;
+    font-size: 1.2rem;
+    box-shadow: rgba(0, 0, 0, 0) 0 0 0 0, rgba(0, 0, 0, 0) 0 0 0 0, rgba(0, 0, 0, .1) 0 4px 6px -1px, rgba(0, 0, 0, .1) 0 2px 4px -2px;
+    margin-top: 15px;
+    cursor: pointer;
+}
+
+.score-table {
+    border-collapse: collapse;
+    width: 100%;
+    font-size: 24px;
+}
+
+.score-table tr th,
+.score-table tr td {
+    text-align: left;
+    padding: 8px;
+}
+
+
+@media (max-width:1600px) {
+    #timer {
+        left: 37%;
+    }
+}
+
+@media (max-width:1000px) {
+    #timer {
+        left: 37%;
+    }
+}
+
+@media (max-width:600px) {
+    #timer {
+        left: 28%;
+    }
+}
+
+
+
+@media (max-width:800px) {
+  
+    #result   .show-result{
+        width: 80%;
+        height: 60%;
+        font-size: 15pt;
+    }
+}
+
+@media (min-width:1200px) {
+  
+    #result  .show-result{
+        width: 40%;
+        height: 60%;
+        font-size: 21pt;
+    }
+}
+
